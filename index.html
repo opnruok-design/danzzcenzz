@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DANZZCENZZ-STORE</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #a0e8df;
+  color: #111;
+  overflow-x: hidden;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.skip {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 20;
+  background: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 10px 19px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#opening {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #a0e8df;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity .6s, visibility .6s;
+}
+
+#opening.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.logo-loader {
+  width: 88px;
+  height: 88px;
+  background: #ffe34d;
+  border: 3px solid black;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+  font-weight: 900;
+  animation: arrive .8s ease-out;
+  position: relative;
+}
+
+.logo-loader::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border: 4px solid transparent;
+  border-top-color: black;
+  border-right-color: #ffe34d;
+  border-radius: 30px;
+  animation: spin 1s linear infinite;
+}
+
+.brand {
+  font-size: 23px;
+  font-weight: 900;
+  margin-top: 22px;
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin-top: 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes arrive {
+  from { transform: translateY(25px) scale(.7); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+main {
+  min-height: 100vh;
+  padding: 85px 14px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  margin-top: -12px;
+}
+
+.window {
+  background: white;
+  width: min(100%, 290px);
+  border: 3px solid black;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 4px 4px 0 #ffe34d;
+  animation: float 3s ease-in-out infinite;
+}
+
+.window-bar {
+  height: 22px;
+  background: black;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 8px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffe34d;
+}
+
+.window-content {
+  padding: 12px;
+}
+
+.window-content h3 {
+  font-size: 14px;
+  margin: 0 0 5px;
+}
+
+.window-content p {
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 25px;
+  flex-shrink: 0;
+}
+
+.wa-window {
+  width: min(100%, 330px);
+  animation-delay: .5s;
+}
+
+.wa-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px;
+}
+
+.whatsapp-icon {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  color: #20b95a;
+}
+
+.wa-text {
+  min-width: 0;
+}
+
+.wa-text h3 {
+  font-size: 14px;
+  line-height: 1.35;
+  margin: 0 0 5px;
+}
+
+.wa-text p {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.wa-button {
+  display: block;
+  width: fit-content;
+  margin-top: 10px;
+  background: #25b95b;
+  color: white;
+  border: 2px solid black;
+  border-radius: 9px;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<button class="skip" onclick="closeOpening()">Skip &gt;</button>
+
+<section id="opening">
+  <div class="logo-loader">D</div>
+  <div class="brand">DANZZCENZZ-STORE</div>
+  <div class="loading-text">LOADING...</div>
+</section>
+
+<main>
+  <div class="heading">DANZZCENZZ-STORE</div>
+  <div class="subtitle">Selamat datang di website kami!</div>
+
+  <section class="window">
+    <div class="window-bar">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <div class="window-content info">
+      <span class="icon">🛍️</span>
+      <div>
+        <h3>Produk Original</h3>
+        <p>Kualitas Terbaik!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="window">
+    <div class="window-bar">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <div class="window-content info">
+      <span class="icon">🚚</span>
+      <div>
+        <h3>Pengiriman Cepat</h3>
+        <p>Aman &amp; Terpercaya!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="window">
+    <div class="window-bar">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <div class="window-content info">
+      <span class="icon">🛡️</span>
+      <div>
+        <h3>Transaksi Aman</h3>
+        <p>100% Terpercaya!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JENDELA CHANNEL WHATSAPP -->
+  <section class="window wa-window">
+    <div class="window-bar">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <div class="wa-content">
+      <svg class="whatsapp-icon" viewBox="0 0 48 48"
+           fill="none" xmlns="http://www.w3.org/2000/svg"
+           aria-label="Logo WhatsApp">
+        <circle cx="24" cy="22" r="17"
+                stroke="currentColor" stroke-width="3.5"/>
+        <path d="M12 37L9 44L18 41"
+              stroke="currentColor" stroke-width="3.5"
+              stroke-linejoin="round"/>
+        <path d="M18 15C19 14 20 16 21 18L19 21
+                 C21 25 24 27 28 28L30 25
+                 C32 25 34 27 35 29
+                 C35 33 30 35 27 34
+                 C20 32 14 26 13 20
+                 C13 18 15 15 18 15Z"
+              fill="currentColor"/>
+      </svg>
+
+      <div class="wa-text">
+        <h3>### Gabung Channel WhatsApp</h3>
+        <p>MASUK CHANNEL UNTUK INFORMASI UPDATE, DLL.</p>
+        <a class="wa-button"
+           href="https://whatsapp.com/channel/">
+          Gabung Channel &gt;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 DANZZCENZZ-STORE</footer>
+</main>
+
+<script>
+const opening = document.getElementById("opening");
+
+function closeOpening() {
+  opening.classList.add("hide");
+  document.querySelector(".skip").style.display = "none";
+}
+
+window.addEventListener("load", () => {
+  setTimeout(closeOpening, 2500);
+});
+</script>
+
+</body>
+</html>
