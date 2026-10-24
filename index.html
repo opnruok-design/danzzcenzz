@@ -1,353 +1,158 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DANZZCENZZ-STORE</title>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #a0e8df;
-  color: #111;
-  overflow-x: hidden;
-}
-
-button, a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-.skip {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 20;
-  background: white;
-  color: black;
-  border: 2px solid black;
-  border-radius: 25px;
-  padding: 10px 19px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#opening {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: #a0e8df;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: opacity .6s, visibility .6s;
-}
-
-#opening.hide {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.logo-loader {
-  width: 88px;
-  height: 88px;
-  background: #ffe34d;
-  border: 3px solid black;
-  border-radius: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 55px;
-  font-weight: 900;
-  animation: arrive .8s ease-out;
-  position: relative;
-}
-
-.logo-loader::after {
-  content: "";
-  position: absolute;
-  inset: -9px;
-  border: 4px solid transparent;
-  border-top-color: black;
-  border-right-color: #ffe34d;
-  border-radius: 30px;
-  animation: spin 1s linear infinite;
-}
-
-.brand {
-  font-size: 23px;
-  font-weight: 900;
-  margin-top: 22px;
-  text-align: center;
-}
-
-.loading-text {
-  font-size: 12px;
-  letter-spacing: 4px;
-  margin-top: 12px;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes arrive {
-  from { transform: translateY(25px) scale(.7); opacity: 0; }
-  to { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-main {
-  min-height: 100vh;
-  padding: 85px 14px 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.heading {
-  text-align: center;
-  font-size: 25px;
-  font-weight: 900;
-  margin-bottom: 5px;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 13px;
-  margin-top: -12px;
-}
-
-.window {
-  background: white;
-  width: min(100%, 290px);
-  border: 3px solid black;
-  border-radius: 17px;
-  overflow: hidden;
-  box-shadow: 4px 4px 0 #ffe34d;
-  animation: float 3s ease-in-out infinite;
-}
-
-.window-bar {
-  height: 22px;
-  background: black;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 0 8px;
-}
-
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #ffe34d;
-}
-
-.window-content {
-  padding: 12px;
-}
-
-.window-content h3 {
-  font-size: 14px;
-  margin: 0 0 5px;
-}
-
-.window-content p {
-  font-size: 12px;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.icon {
-  font-size: 25px;
-  flex-shrink: 0;
-}
-
-.wa-window {
-  width: min(100%, 330px);
-  animation-delay: .5s;
-}
-
-.wa-content {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 13px;
-}
-
-.whatsapp-icon {
-  width: 43px;
-  height: 43px;
-  flex-shrink: 0;
-  color: #20b95a;
-}
-
-.wa-text {
-  min-width: 0;
-}
-
-.wa-text h3 {
-  font-size: 14px;
-  line-height: 1.35;
-  margin: 0 0 5px;
-}
-
-.wa-text p {
-  font-size: 11px;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.wa-button {
-  display: block;
-  width: fit-content;
-  margin-top: 10px;
-  background: #25b95b;
-  color: white;
-  border: 2px solid black;
-  border-radius: 9px;
-  padding: 8px 12px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-footer {
-  text-align: center;
-  font-size: 11px;
-  padding: 15px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FALLSTOREE AM PREMIUM Clone</title>
+    <!-- Menggunakan Tailwind CSS agar tampilan modern & responsif -->
+    <script src="https://jsdelivr.net"></script>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; }
+    </style>
 </head>
+<body class="font-sans antialiased pb-24">
 
-<body>
+    <!-- TOP NAVBAR -->
+    <header class="bg-slate-900 border-b border-slate-800 p-4 sticky top-0 z-50 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <span class="text-yellow-500 text-xl font-bold">✦</span>
+            <h1 class="text-lg font-extrabold tracking-wider text-amber-400">FALLSTOREE AM PREMIUM</h1>
+        </div>
+        <button class="text-slate-400 hover:text-white"><i class="fas fa-bars text-xl"></i></button>
+    </header>
 
-<button class="skip" onclick="closeOpening()">Skip &gt;</button>
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-4xl mx-auto p-4 space-y-6">
 
-<section id="opening">
-  <div class="logo-loader">D</div>
-  <div class="brand">DANZZCENZZ-STORE</div>
-  <div class="loading-text">LOADING...</div>
-</section>
+        <!-- DASHBOARD MONITORING SERVER -->
+        <section class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+            <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
+                <h2 class="text-xl font-bold flex items-center gap-2"><i class="fas fa-gauge-high text-indigo-400"></i> Dashboard Server</h2>
+                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">FALZZ CONTROL</span>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <p class="text-xs text-slate-400 uppercase">Waktu Jakarta</p>
+                    <p id="live-clock" class="text-lg font-mono font-bold text-emerald-400">--:--:--</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <p class="text-xs text-slate-400 uppercase">CPU VPS</p>
+                    <p class="text-lg font-bold text-amber-400">12%</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <p class="text-xs text-slate-400 uppercase">RAM Terpakai</p>
+                    <p class="text-lg font-bold text-blue-400">1.8 GB / 4 GB</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <p class="text-xs text-slate-400 uppercase">Total User</p>
+                    <p class="text-lg font-bold text-white">1,240</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <p class="text-xs text-slate-400 uppercase">User VIP</p>
+                    <p class="text-lg font-bold text-yellow-400">84</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <button onclick="alert('Resource diperbarui!')" class="w-full h-full bg-slate-800 hover:bg-slate-700 text-xs font-bold py-2 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fas fa-sync-alt"></i> REFRESH
+                    </button>
+                </div>
+            </div>
+        </section>
 
-<main>
-  <div class="heading">DANZZCENZZ-STORE</div>
-  <div class="subtitle">Selamat datang di website kami!</div>
+        <!-- FALZZ AI ASSISTANT -->
+        <section class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col h-[400px]">
+            <div class="flex justify-between items-center mb-3 border-b border-slate-800 pb-3">
+                <div>
+                    <h2 class="text-lg font-bold text-indigo-400">🤖 FALZZ AI</h2>
+                    <p class="text-xs text-slate-400">AI Assistant terhubung via Backend</p>
+                </div>
+                <button onclick="clearChat()" class="text-xs text-red-400 hover:text-red-300"><i class="fas fa-trash"></i> Hapus Riwayat</button>
+            </div>
+            
+            <!-- Chat Box -->
+            <div id="chat-box" class="flex-1 overflow-y-auto space-y-3 p-2 bg-slate-950 rounded-xl border border-slate-800 text-sm">
+                <div class="bg-slate-900 p-3 rounded-lg max-w-[85%] text-slate-300">
+                    Halo! Ada yang bisa gw bantu? 👋
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="mt-3 flex gap-2">
+                <input id="chat-input" type="text" placeholder="Tanyakan sesuatu pada AI..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-indigo-500">
+                <button onclick="sendMessage()" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-xl text-sm font-bold transition"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </section>
 
-  <section class="window">
-    <div class="window-bar">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-    <div class="window-content info">
-      <span class="icon">🛍️</span>
-      <div>
-        <h3>Produk Original</h3>
-        <p>Kualitas Terbaik!</p>
-      </div>
-    </div>
-  </section>
+        <!-- PREMIUM ACTIVATION CENTER -->
+        <section class="bg-gradient-to-br from-slate-900 to-indigo-950 border border-indigo-900 rounded-2xl p-5 shadow-xl">
+            <div class="mb-4">
+                <span class="text-xs text-amber-400 font-bold tracking-wider uppercase">✦ PREMIUM ACTIVATION CENTER</span>
+                <h2 class="text-xl font-extrabold mt-1">Upgrade Akun Lebih Praktis</h2>
+                <p class="text-xs text-slate-400 mt-1">Kirim Magic Link untuk memproses aktivasi Premium secara otomatis.</p>
+            </div>
 
-  <section class="window">
-    <div class="window-bar">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-    <div class="window-content info">
-      <span class="icon">🚚</span>
-      <div>
-        <h3>Pengiriman Cepat</h3>
-        <p>Aman &amp; Terpercaya!</p>
-      </div>
-    </div>
-  </section>
+            <div class="space-y-3 bg-slate-950 p-4 rounded-xl border border-slate-800">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1">EMAIL AKUN</label>
+                    <input type="email" placeholder="contoh@email.com" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1">MAGIC LINK</label>
+                    <input type="text" placeholder="Masukkan Magic Link dari email jika ada" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500">
+                </div>
+                <button onclick="alert('Magic Link Terkirim!')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 rounded-lg text-sm transition">
+                    SEND MAGIC LINK <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </button>
+            </div>
+        </section>
 
-  <section class="window">
-    <div class="window-bar">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-    <div class="window-content info">
-      <span class="icon">🛡️</span>
-      <div>
-        <h3>Transaksi Aman</h3>
-        <p>100% Terpercaya!</p>
-      </div>
-    </div>
-  </section>
+        <!-- USER PROFILE & VIP QUOTA -->
+        <section class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex items-center space-x-4">
+                <div class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-xl font-bold text-white shadow-lg">F</div>
+                <div>
+                    <h3 class="font-bold text-white">FALLSTOREE USER</h3>
+                    <p class="text-xs text-amber-400 font-mono">ID: 98234-ANONIM</p>
+                    <span class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-400">REGULAR USER</span>
+                </div>
+            </div>
 
-  <!-- JENDELA CHANNEL WHATSAPP -->
-  <section class="window wa-window">
-    <div class="window-bar">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+                <div class="flex justify-between text-xs text-slate-400">
+                    <span>Request Tersisa: <strong class="text-white">5 / 5</strong></span>
+                    <span>Reset: <strong class="text-emerald-400">00.00 WIB</strong></span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full my-2">
+                    <div class="bg-indigo-500 h-2 rounded-full" style="width: 100%"></div>
+                </div>
+                <button onclick="openModal()" class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-slate-950 font-extrabold py-2 rounded-lg text-xs transition shadow-md">
+                    ✦ UP GRADE KE VIP (25 Limit/Hari)
+                </button>
+            </div>
+        </section>
 
-    <div class="wa-content">
-      <svg class="whatsapp-icon" viewBox="0 0 48 48"
-           fill="none" xmlns="http://www.w3.org/2000/svg"
-           aria-label="Logo WhatsApp">
-        <circle cx="24" cy="22" r="17"
-                stroke="currentColor" stroke-width="3.5"/>
-        <path d="M12 37L9 44L18 41"
-              stroke="currentColor" stroke-width="3.5"
-              stroke-linejoin="round"/>
-        <path d="M18 15C19 14 20 16 21 18L19 21
-                 C21 25 24 27 28 28L30 25
-                 C32 25 34 27 35 29
-                 C35 33 30 35 27 34
-                 C20 32 14 26 13 20
-                 C13 18 15 15 18 15Z"
-              fill="currentColor"/>
-      </svg>
+    </main>
 
-      <div class="wa-text">
-        <h3>### Gabung Channel WhatsApp</h3>
-        <p>MASUK CHANNEL UNTUK INFORMASI UPDATE, DLL.</p>
-        <a class="wa-button"
-           href="https://whatsapp.com/channel/">
-          Gabung Channel &gt;
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- POPUP MODAL QRIS / UP VIP -->
+    <div id="vip-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 max-w-sm w-full rounded-2xl p-5 space-y-4 shadow-2xl animate-fade-in">
+            <div class="text-center">
+                <h3 class="text-lg font-bold text-amber-400">✦ UP VIP via QRIS</h3>
+                <p class="text-xs text-slate-400">Harga: Rp 5.000 (Proses Otomatis/Manual)</p>
+            </div>
+            
+            <!-- Simulasi Gambar QRIS Mockup -->
+            <div class="bg-white p-3 rounded-xl mx-auto w-48 h-48 flex flex-col items-center justify-center text-slate-900 border-4 border-amber-500">
+                <i class="fas fa-qrcode text-7xl mb-2 text-slate-900"></i>
+                <span class="text-xs font-black tracking-widest bg-slate-900 text-white px-2 py-0.5 rounded">QRIS DUKUNGAN</span>
+            </div>
 
-  <footer>© 2026 DANZZCENZZ-STORE</footer>
-</main>
+            <p class="text-[11px] text-slate-400 text-center">Scan QRIS di atas, lalu kirimkan bukti transaksi ke WhatsApp Developer untuk aktivasi instan.</p>
 
-<script>
-const opening = document.getElementById("opening");
-
-function closeOpening() {
-  opening.classList.add("hide");
-  document.querySelector(".skip").style.display = "none";
-}
-
-window.addEventListener("load", () => {
-  setTimeout(closeOpening, 2500);
-});
-</script>
-
-</body>
-</html>
+            <div class="space-y-2">
+                <a href="https://wa.me" target="_blank" class="block text-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-lg text-xs transition">
+                    <i class="fab fa-whatsapp mr-1"></i> UPLOAD BUKTI VIA WHATSAPP
+                </a>
+                <button onclick="closeModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-400 font-bold py-2 rounded-lg text-xs transition">
